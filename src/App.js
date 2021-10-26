@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 
 
 
@@ -36,6 +36,13 @@ function App() {
 
 
     const[mov,setmov]=useState(Movies);
+
+
+   useEffect(()=>{
+        fetch('https://node-parth.herokuapp.com/movie')
+        .then((data)=>data.json)
+        .then((mvs)=>setmov(mvs));
+   },[]);
 
 
 
